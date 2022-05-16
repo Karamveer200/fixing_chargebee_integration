@@ -1,0 +1,171 @@
+.root {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  background: #ffffff;
+}
+
+.largeBoldText {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.largeLightText {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.smallLightText {
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.smallMediumText {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.smallBoldText {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.header {
+  color: #2d3a47;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 150%;
+  margin: 25px 0 0 26px;
+}
+
+.circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 4px solid rgba(165, 165, 165, 1);
+}
+
+.line {
+  width: 3px;
+  height: 150px;
+  background: rgba(165, 165, 165, 1);
+  margin-left: 22px;
+}
+
+.flex_row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.mt_top_25px {
+  margin-top: 25px;
+  padding-left: 30px;
+}
+
+.flex_col {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.stepsText {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0em;
+  text-align: center;
+  position: absolute;
+  white-space: nowrap;
+  top: 15px;
+}
+
+.firstStepText {
+  left: 70px;
+}
+
+.secondStepText {
+  left: 70px;
+}
+
+.thirdStepText {
+  left: 70px;
+}
+
+.stepsNumber {
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 27px;
+  letter-spacing: 0em;
+  text-align: center;
+  position: absolute;
+  color: rgba(165, 165, 165, 1);
+}
+
+.firstStepNumber {
+  top: 10px;
+  left: 19px;
+}
+
+.secondStepNumber {
+  top: 10px;
+  left: 17px;
+}
+
+.thirdStepNumber {
+  top: 11px;
+  left: 17px;
+}
+
+.activeCircle {
+  border-color: rgba(56, 101, 163, 1);
+  background: rgba(214, 231, 255, 1);
+}
+
+.activeCircleDone {
+  border-color: rgba(56, 101, 163, 1);
+  background: rgba(56, 101, 163, 1);
+}
+
+.activeCircleDoneText {
+  color: rgba(56, 101, 163, 1);
+}
+
+.activeText {
+  color: rgba(56, 101, 163, 1);
+}
+
+.activeCircleDoneTextNumber {
+  color: rgba(255, 255, 255, 1);
+}
+
+.activeCircleDoneLine {
+  background: rgba(56, 101, 163, 1);
+}
+
+.left_column {
+  min-width: 240px;
+  width: 240px;
+  background: #f3f3f3;
+  border-radius: 25px 0px 0px 25px;
+}
+
+@media screen and (max-width: 950px) {
+  .largeBoldText {
+    font-size: 15px;
+  }
+
+  .largeLightText {
+    font-size: 15px;
+  }
+
+  .smallLightText {
+    font-size: 14px;
+  }
+
+  .smallBoldText {
+    font-size: 14px;
+  }
+}

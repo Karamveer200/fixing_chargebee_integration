@@ -1,0 +1,62 @@
+.flex_col{
+    display: flex;
+    flex-direction: column;
+    gap:6px;
+    position: relative;
+}
+
+.label{
+    font-size: 16px;
+    color: #2D3A47;
+    font-weight: 600;
+}
+
+.input{
+    width: 295px;
+    height: 38px;
+    border: 1px solid rgba(217, 217, 217, 1);
+    border-radius: 10px;
+    font-size: 16px;
+    padding-left: 10px;
+}
+
+.input:focus{
+    outline:#2d3a47;
+    border: 1px solid #2d3a47;
+}
+
+.flex_row{
+    display: flex;
+    gap: 5px;
+}
+
+.optionalSpan{
+    color:rgb(177, 177, 177)
+}
+
+.fullInputWidth{
+    width: 630px
+}
+
+.width220{
+    width: 220px;
+}
+
+.width135{
+    width: 135px;
+}
+
+.invalidRedBorder{
+    border: 1px solid rgba(224, 59, 36, 1)
+}
+
+.addMaxWidth{
+    width: 135px;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.fixAddressErrorPosition{
+    position: absolute;
+    bottom: -75px;
+}

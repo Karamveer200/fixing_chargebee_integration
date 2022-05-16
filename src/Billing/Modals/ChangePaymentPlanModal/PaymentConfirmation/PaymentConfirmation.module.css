@@ -1,0 +1,113 @@
+.root {
+    margin-top: 40px;
+    height: 605px;
+    width: 100%;
+}
+
+.header {
+    font-size: 19px;
+    font-weight: 600;
+    line-height: 23px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: rgba(45, 58, 71, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.paymentConfirmStatus{
+    color: #F57B20;
+    font-weight: 800;
+    font-size: 24px;
+    margin-top: 12px;
+}
+
+.paymentConfirmInfo{
+    color: #2D3A47;
+    font-size: 16px;
+    font-weight: 400;
+    text-align: center;
+    width: 355px;
+    margin: 8px auto;
+    line-height: 140%;
+}
+
+.paymentConfirmBody{
+    background: #F0F5FB;
+    width: 600px;
+    margin: 12px auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.hideHorizontalScroll{
+    height: 93% !important;
+}
+
+.hideHorizontalScroll > div:nth-child(2) {
+    display: none !important;
+}
+
+.left_grid{
+    border-right: 1px solid #9FB4D2
+}
+
+.right_grid{
+    border-left: 1px solid #9FB4D2;
+    padding-left: 48px;
+}
+
+.paymentTitle{
+    color: #2D3A47;
+    font-size:16px;
+    font-weight: 600;
+}
+
+.billingInfoRoot{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    line-height: 140%;
+    font-size: 16px;
+}
+
+.cardInfoRoot{
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    line-height: 140%;
+    font-size: 16px; 
+}
+
+.paymentImg{
+    width: 48px;
+    height: 30px;
+    margin-bottom: 3px;
+}
+
+.flex_row_buttons {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+    width: 100%;
+    margin-top: 16px;
+}
+
+.continueBtn{
+    color: rgba(255, 255, 255, 1) !important;
+    background: rgba(45, 58, 71, 1)!important;
+    font-size: 16px !important;
+    font-weight: 500 !important;
+    height: 40px !important;
+    width: 180px !important;
+    border: 1px solid rgba(45, 58, 71, 1);
+}
+
+.continueBtn:hover{
+    color:rgba(45, 58, 71, 1) !important ;
+    background: rgba(255, 255, 255, 1)!important;
+}
