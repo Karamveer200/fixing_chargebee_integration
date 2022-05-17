@@ -2,7 +2,7 @@
 import { CardComponent, CardCVV, CardExpiry, CardNumber } from '@chargebee/chargebee-js-react-wrapper';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import PropTypes from 'prop-types';
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import Scrollbars from 'react-custom-scrollbars';
 import { Button } from 'simplexiar_react_components';
 
@@ -36,13 +36,20 @@ const STYLES = {
 };
 
 const PaymentCollector = ({ setStep1, setStep3, billingInfoCollector, reactSelectStates }) => {
-  const ref = useRef();
+  const ref = useRef(null);
+  const ref_2 = useRef(null);
   const [nameOnCard, setNameOnCard] = useState('');
 
   const [triggerNameValidation, setTriggerNameValidation] = useState(false);
   const [cardNumberError, setCardNumberError] = useState(null);
   const [cardExpiryError, setCardExpiryError] = useState(null);
   const [cardCVVError, setCardCVVError] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    console.log('ref', ref?.current, ref_2?.current);
+    if (ref?.current) setIsLoading(false);
+  }, [ref, ref_2]);
 
   window.Chargebee.init({
     site: 'simplyask-test',
@@ -133,7 +140,7 @@ const PaymentCollector = ({ setStep1, setStep3, billingInfoCollector, reactSelec
   };
 
   return (
-    <div className={classes.root}>
+    <div className={classes.root} ref={ref_2}>
       <div className={classes.header}>Credit Card Information</div>
       <Scrollbars className={classes.hideHorizontalScroll}>
         <div className={`${classes.mt_20px}`}>
@@ -156,7 +163,7 @@ const PaymentCollector = ({ setStep1, setStep3, billingInfoCollector, reactSelec
                   </div>
                 )}
               </div>
-              {/* Card component */}
+
               <CardComponent
                 ref={ref}
                 className={`${classes.font_size} fieldset field`}
@@ -164,7 +171,6 @@ const PaymentCollector = ({ setStep1, setStep3, billingInfoCollector, reactSelec
                 styles={STYLES}
               >
                 <div className={`ex1-field ${classes.flex_col} ${classes.mt_20px}`}>
-                  {/* Card number field */}
                   <label className={`ex1-label ${classes.label}`}>Card Number</label>
                   <CardNumber
                     className={`ex1-input ${classes.input}`}
