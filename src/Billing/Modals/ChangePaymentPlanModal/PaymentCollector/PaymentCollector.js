@@ -47,9 +47,8 @@ const PaymentCollector = ({ setStep1, setStep3, billingInfoCollector, reactSelec
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    console.log('ref', ref?.current, ref_2?.current);
-    if (ref?.current) setIsLoading(false);
-  }, [ref, ref_2]);
+    setIsLoading(false);
+  }, []);
 
   window.Chargebee.init({
     site: 'simplyask-test',
@@ -82,8 +81,6 @@ const PaymentCollector = ({ setStep1, setStep3, billingInfoCollector, reactSelec
             billingAddressCompanyName: billingInfoCollector?.[BILLING_DATA_SCHEMA.companyName],
             taxRegistrationNumber: billingInfoCollector?.[BILLING_DATA_SCHEMA.taxRegistrationNumber],
           };
-
-          console.log('getPaymentIntent 1', getPaymentIntent, prepareBillingData);
 
           ref.current
             ?.authorizeWith3ds(getPaymentIntent)
@@ -139,6 +136,7 @@ const PaymentCollector = ({ setStep1, setStep3, billingInfoCollector, reactSelec
     );
   };
 
+  if (isLoading) return <div>Loading...</div>;
   return (
     <div className={classes.root} ref={ref_2}>
       <div className={classes.header}>Credit Card Information</div>

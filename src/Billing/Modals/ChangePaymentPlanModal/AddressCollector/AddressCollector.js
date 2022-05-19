@@ -124,6 +124,8 @@ const AddressCollector = ({
     }));
   };
 
+  if (!savedFormData) return <p>Loading...</p>;
+
   return (
     <div className={classes.root}>
       <div className={classes.header}>Billing Information</div>

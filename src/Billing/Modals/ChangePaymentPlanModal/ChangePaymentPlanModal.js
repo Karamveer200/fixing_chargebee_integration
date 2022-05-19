@@ -51,14 +51,14 @@ const ChangePaymentPlanModal = ({ showChangePaymentModal, closeChangePaymentModa
   };
 
   const ref = useRef();
-  const [currentTab, setCurrentTab] = useState(TABS.SECOND_STEP);
+  const [currentTab, setCurrentTab] = useState(TABS.FIRST_STEP);
 
   useEffect(() => {
-    setCurrentTab(TABS.SECOND_STEP);
+    setCurrentTab(TABS.FIRST_STEP);
   }, []);
 
   useEffect(() => {
-    if (currentTab === TABS.THIRD_STEP && !showChangePaymentModal) setCurrentTab(TABS.SECOND_STEP);
+    if (currentTab === TABS.THIRD_STEP && !showChangePaymentModal) setCurrentTab(TABS.FIRST_STEP);
   }, [showChangePaymentModal, currentTab]);
 
   console.log('currentTab', currentTab);

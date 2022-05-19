@@ -288,7 +288,12 @@
 }
 
 .editPayment {
-  margin-top: 400px;
+  width: 200px;
+  height: 40px;
+  background-color: #2d3a47;
+  color: #ffffff;
+  margin: 400px auto;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 1320px) {
