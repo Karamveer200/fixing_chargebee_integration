@@ -52,7 +52,7 @@ const PaymentCollector = ({ setStep1, setStep3, billingInfoCollector, reactSelec
 
   window.Chargebee.init({
     site: 'simplyask-test',
-    publishableKey: 'test_5GzhKOsqV3zM2qA4t7TxlqC4GzQFIcuUv',
+    publishableKey: 'test_vWVG2cdELvszIHPzw6fyC04KKlsOcdDIjp',
   });
 
   const handleValidations = async (e) => {
@@ -88,7 +88,7 @@ const PaymentCollector = ({ setStep1, setStep3, billingInfoCollector, reactSelec
               console.log('res', res);
             })
             .catch((err) => {
-              console.log('err', err);
+              console.log('authorizeWith3ds Failed with error - ', err);
             });
 
           setStep3();
@@ -156,7 +156,7 @@ const PaymentCollector = ({ setStep1, setStep3, billingInfoCollector, reactSelec
                 <i className='ex1-bar' />
                 {triggerNameValidation && nameOnCard.length < 1 && (
                   <div className={`${classes.only_flex_row}`}>
-                    <img src={alertRedIcon} />
+                    <img src={alertRedIcon} alt='' />
                     <div>A valid name, as it appears on the credit card, is required</div>
                   </div>
                 )}
@@ -178,7 +178,7 @@ const PaymentCollector = ({ setStep1, setStep3, billingInfoCollector, reactSelec
                   <i className='ex1-bar' />
                   {cardNumberError && (
                     <div className={`${classes.only_flex_row}`}>
-                      <img src={alertRedIcon} />
+                      <img src={alertRedIcon} alt='' />
                       <div>A valid card number, in the 1234 1234 1234 1234, format is required</div>
                     </div>
                   )}
@@ -195,7 +195,7 @@ const PaymentCollector = ({ setStep1, setStep3, billingInfoCollector, reactSelec
                     {cardExpiryError && (
                       <div className={`${classes.only_flex_row}`}>
                         <div className={classes.pt_3}>
-                          <img src={alertRedIcon} />
+                          <img src={alertRedIcon} alt='' />
                         </div>
                         <div>An expiry date, in MM / YY, format is required</div>
                       </div>
@@ -209,7 +209,7 @@ const PaymentCollector = ({ setStep1, setStep3, billingInfoCollector, reactSelec
                     {cardCVVError && (
                       <div className={`${classes.only_flex_row}`}>
                         <div className={classes.pt_3}>
-                          <img src={alertRedIcon} />
+                          <img src={alertRedIcon} alt='' />
                         </div>
                         <div>A security code, in the 123 format, is required</div>
                       </div>

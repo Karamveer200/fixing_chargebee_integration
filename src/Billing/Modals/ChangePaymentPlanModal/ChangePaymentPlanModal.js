@@ -61,7 +61,6 @@ const ChangePaymentPlanModal = ({ showChangePaymentModal, closeChangePaymentModa
     if (currentTab === TABS.THIRD_STEP && !showChangePaymentModal) setCurrentTab(TABS.FIRST_STEP);
   }, [showChangePaymentModal, currentTab]);
 
-  console.log('currentTab', currentTab);
   const RenderSelectedTab = () => {
     if (currentTab === TABS.FIRST_STEP) {
       return (
