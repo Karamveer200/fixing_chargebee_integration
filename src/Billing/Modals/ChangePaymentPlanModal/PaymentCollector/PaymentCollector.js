@@ -52,7 +52,7 @@ const PaymentCollector = ({ setStep1, setStep3, billingInfoCollector, reactSelec
 
   window.Chargebee.init({
     site: 'simplyask-test',
-    publishableKey: 'test_vWVG2cdELvszIHPzw6fyC04KKlsOcdDIjp',
+    publishableKey: 'test_5GzhKOsqV3zM2qA4t7TxlqC4GzQFIcuUv',
   });
 
   const handleValidations = async (e) => {
@@ -61,41 +61,39 @@ const PaymentCollector = ({ setStep1, setStep3, billingInfoCollector, reactSelec
     if (e) e.preventDefault();
 
     if (ref) {
-      if (cardNumberError || cardExpiryError || cardCVVError || nameOnCard.length < 1) {
-        return;
-      }
       try {
         const getPaymentIntent = await getBillingPaymentIntent();
 
+        console.log('getPaymentIntent', getPaymentIntent);
+
         if (getPaymentIntent) {
-          const prepareBillingData = {
-            cardholderFirstName: billingInfoCollector?.[BILLING_DATA_SCHEMA.firstName],
-            cardholderLastName: billingInfoCollector?.[BILLING_DATA_SCHEMA.lastName],
-            billingAddressLine1: billingInfoCollector?.[BILLING_DATA_SCHEMA.streetAddressLine1],
-            billingAddressLine2: billingInfoCollector?.[BILLING_DATA_SCHEMA.streetAddressLine2],
-            billingAddressCity: billingInfoCollector?.[BILLING_DATA_SCHEMA.city],
-            billingAddressState: reactSelectStates?.[REACT_SELECT_KEYS.provinceData]?.label,
-            billingAddressPostalCode: billingInfoCollector?.[BILLING_DATA_SCHEMA.postalCode],
-            billingAddressCountry: reactSelectStates?.[REACT_SELECT_KEYS.countryData]?.label,
-            billingAddressPhone: reactSelectStates?.[REACT_SELECT_KEYS.phoneNumberData],
-            billingAddressCompanyName: billingInfoCollector?.[BILLING_DATA_SCHEMA.companyName],
-            taxRegistrationNumber: billingInfoCollector?.[BILLING_DATA_SCHEMA.taxRegistrationNumber],
-          };
-
-          ref.current
-            ?.authorizeWith3ds(getPaymentIntent)
-            .then((res) => {
-              console.log('res', res);
-            })
-            .catch((err) => {
-              console.log('authorizeWith3ds Failed with error - ', err);
-            });
-
-          setStep3();
+          if (getPaymentIntent && ref) {
+            ref.current
+              .authorizeWith3ds(getPaymentIntent, {
+                billingAddress: {
+                  firstName: 'Test',
+                  lastName: 'Chargebee',
+                  addressLine1: '3406 Creekside Lane',
+                  addressLine2: 'Surf',
+                  addressLine3: '',
+                  city: 'Surf',
+                  state: 'California',
+                  stateCode: 'CA',
+                  countryCode: 'US',
+                  zip: '93455',
+                },
+              })
+              .then((res) => {
+                console.log('res', res);
+                setStep3();
+              })
+              .catch((err) => {
+                console.log('authorizeWith3ds Failed with error - ', err);
+              });
+          }
         }
       } catch (error) {
         console.log('error 2', error);
-        return;
       }
     }
   };
